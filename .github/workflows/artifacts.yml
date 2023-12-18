@@ -1,17 +1,17 @@
-name: artifacts
-env: 
-  ARTIFACT_NAME: 'myArtifact'
+name: Artifacts  
 on: [push]
+env: 
+  FILE_NAME: 'myArtifact'
 
 jobs: 
-  job1:
+  main:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repository
-        uses: actions/checkout@v1
+      - name: Check out repository
+        uses: actions/checkout@v2
         
-      - name: Upload artifact for linux
-        uses: actions/upload-artifact@v1.0.0
+      - name: Upload the artifact for linux
+        uses: actions/upload-artifact@v2
         with:
-          name: linux
-          path: ./${{ env.ARTIFACT_NAME }}
+          name: ${{ env.FILE_NAME }}
+          path: .
